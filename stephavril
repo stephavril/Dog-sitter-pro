@@ -1,0 +1,104 @@
+cyclopets/
+├── index.html
+├── styles.css
+├── script.js
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cyclo Pet's – Pet sitter à Bordeaux</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="#" class="logo">Cyclo Pet's</a>
+      <button class="menu-toggle">☰</button>
+      <nav>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#zones">Zones</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Pet sitter à Bordeaux</h1>
+    <p>Visites à domicile et promenades de vos compagnons à 4 pattes</p>
+  </section>
+
+  <section id="services" class="container">
+    <h2>Nos services</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Visite pour chats</h3>
+        <p>Nourrissage, jeux et câlins chez vous.</p>
+      </div>
+      <div class="card">
+        <h3>Balade pour chiens</h3>
+        <p>Promenades en douceur dans Bordeaux centre et rive gauche.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="zones" class="container">
+    <h2>Zones desservies</h2>
+    <p>Bordeaux centre, Chartrons, Saint-Michel, Bastide, Nansouty…</p>
+  </section>
+
+  <section id="contact" class="container contact">
+    <h2>Contact</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="text" name="name" placeholder="Votre nom" required />
+      <input type="email" name="email" placeholder="Votre e-mail" required />
+      <textarea name="message" placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+    <p>📞 06 09 70 00 33<br>📧 contact@cyclopets.fr</p>
+  </section>
+
+  <footer>
+    <p>&copy; Cyclo Pet's – Tous droits réservés</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; }
+.container { width: 90%; max-width: 1000px; margin: auto; padding: 20px 0; }
+header { background: white; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 10; }
+header .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: bold; color: #333; text-decoration: none; }
+nav ul { list-style: none; display: flex; gap: 20px; }
+nav a { text-decoration: none; color: #333; }
+.menu-toggle { display: none; font-size: 1.5rem; background: none; border: none; }
+
+.hero { background: #eafbf2; text-align: center; padding: 60px 20px; }
+.hero h1 { font-size: 2rem; }
+.cards { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+.card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); flex: 1 1 45%; }
+
+.contact form { display: grid; gap: 10px; margin-top: 20px; }
+input, textarea, button {
+  width: 100%; padding: 10px; font-size: 1rem;
+  border: 1px solid #ccc; border-radius: 5px;
+}
+button { background: #28a745; color: white; cursor: pointer; }
+
+footer { text-align: center; padding: 20px; font-size: 0.9rem; color: #777; }
+
+@media (max-width: 768px) {
+  nav ul { display: none; flex-direction: column; gap: 10px; }
+  nav.open ul { display: flex; }
+  .menu-toggle { display: block; }
+  .cards { flex-direction: column; }
+}
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+toggle.addEventListener('click', () => {
+  nav.classList.toggle('open');
+});
